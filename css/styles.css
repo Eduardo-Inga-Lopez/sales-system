@@ -26,3 +26,26 @@ body {
     background-color: #0056b3;
     border-color: #0056b3;
   }
+
+  
+  .sortable {
+    cursor: pointer;
+    position: relative;
+}
+
+.sortable:after {
+    content: '↕';
+    position: absolute;
+    right: 8px;
+    color: #999;
+}
+
+.sort-asc:after {
+    content: '↑';
+    color: #333;
+}
+
+.sort-desc:after {
+    content: '↓';
+    color: #333;
+}

@@ -31,148 +31,214 @@
         <div class="card mt-4">
           <div class="card-header">
             <h2 class="text-center">Registro de Productos</h2>
+            <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasProductForm">
+              Registrar Producto
+            </button>
           </div>
-          <div class="card-body">
-            <form id="productForm" class="mb-4">
-              <div class="mb-3">
-                <label for="productName" class="form-label">Nombre del Producto</label>
-                <input type="text" class="form-control" id="productName" required />
-              </div>
-              <div class="mb-3">
-                <label for="productPrice" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="productPrice" required />
-              </div>
-              <div class="mb-3">
-                <label for="productStock" class="form-label">Stock Inicial</label>
-                <input type="number" class="form-control" id="productStock" required />
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Registrar Producto</button>
-            </form>
+          <!-- Agregar campo de búsqueda sobre cada tabla -->
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Buscar..." data-table="product">
           </div>
-        </div>
-        <div class="card mt-4">
-          <div class="card-header">
-            <h2 class="text-center">Listado de Productos</h2>
-          </div>
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Precio</th>
-                  <th>Stock</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="productList">
-                <!-- Aquí se agregarán los productos -->
-              </tbody>
-            </table>
-          </div>
+          <table class="table table-striped" id="productTable">
+            <thead>
+              <tr>
+                <th data-sort="0" class="sortable">Nombre</th>
+                <th data-sort="1" class="sortable">Precio</th>
+                <th data-sort="2" class="sortable">Stock</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="productList">
+              <!-- Contenido dinámico -->
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="tab-pane fade" id="clients" role="tabpanel" aria-labelledby="clients-tab">
         <div class="card mt-4">
           <div class="card-header">
             <h2 class="text-center">Registro de Clientes</h2>
+            <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasClientForm">Registrar
+              Cliente</button>
           </div>
-          <div class="card-body">
-            <form id="clientForm" class="mb-4">
-              <div class="mb-3">
-                <label for="clientName" class="form-label">Nombre del Cliente</label>
-                <input type="text" class="form-control" id="clientName" required />
-              </div>
-              <div class="mb-3">
-                <label for="clientEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="clientEmail" required />
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Registrar Cliente</button>
-            </form>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Buscar..." data-table="client">
           </div>
-        </div>
-        <div class="card mt-4">
-          <div class="card-header">
-            <h2 class="text-center">Listado de Clientes</h2>
-          </div>
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="clientList">
-                <!-- Aquí se agregarán los clientes -->
-              </tbody>
-            </table>
-          </div>
+          <table class="table table-striped" id="clientTable">
+            <thead>
+              <tr>
+                <th data-sort="0" class="sortable">Nombre</th>
+                <th data-sort="1" class="sortable">Email</th>
+                <th data-sort="2" class="sortable">Compras</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="clientList">
+              <!-- Contenido dinámico -->
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="tab-pane fade" id="sales" role="tabpanel" aria-labelledby="sales-tab">
         <div class="card mt-4">
           <div class="card-header">
             <h2 class="text-center">Registrar Venta</h2>
-          </div>
-          <div class="card-body">
-            <form id="salesForm" class="mb-4">
-              <div class="mb-3">
-                <label for="selectClient" class="form-label">Cliente:</label>
-                <select class="form-select" id="selectClient" required>
-                  <!-- Aquí se agregarán los clientes -->
-                </select>
-              </div>
-              <div id="productContainer">
-                <div class="mb-3">
-                  <label for="selectProduct" class="form-label">Producto:</label>
-                  <select class="form-select selectProduct" required>
-                    <!-- Aquí se agregarán los productos -->
-                  </select>
-                  <label for="productQuantity" class="form-label mt-2">Cantidad</label>
-                  <input type="number" class="form-control productQuantity" required />
-                </div>
-              </div>
-              <button type="button" class="btn btn-secondary mb-3" id="addProduct">Agregar Producto</button>
-              <div class="mb-3">
-                <label for="totalSale" class="form-label">Total de la Venta</label>
-                <input type="text" class="form-control" id="totalSale" readonly />
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Confirmar Venta</button>
-            </form>
-          </div>
-        </div>
-        <div class="card mt-4">
-          <div class="card-header">
-            <h2 class="text-center">Listado de Ventas</h2>
-          </div>
-          <div class="card-body">
-            <table class="table" id="salesTable">
+            <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSalesForm">Registrar
+              Venta</button>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Buscar..." data-table="sales">
+            </div>
+            <table class="table table-striped" id="salesTable">
               <thead>
-                  <tr>
-                      <th>Cliente</th>
-                      <th>Productos</th>
-                      <th>Total</th>
-                      <th>Compras Totales</th> <!-- Nueva columna -->
-                      <th>Acciones</th>
-                  </tr>
+                <tr>
+                  <th data-sort="0" class="sortable">Cliente</th>
+                  <th data-sort="1" class="sortable">Productos</th>
+                  <th data-sort="2" class="sortable">Total</th>
+                  <th data-sort="3" class="sortable">Compras Totales</th>
+                  <th>Acciones</th>
+                </tr>
               </thead>
               <tbody id="salesList">
-                  <!-- Las ventas se agregarán aquí dinámicamente -->
+                <!-- Contenido dinámico -->
               </tbody>
-          </table>
-          
+            </table>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/models/Customer.js"></script>
-  <script src="./js/models/Product.js"></script>
-  <script src="./js/models/Sale.js"></script>
-  <script src="js/app.js"></script>
+    <!-- Offcanvas para registrar productos -->
+    <div class="offcanvas offcanvas-end" id="offcanvasProductForm">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Registrar Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form id="productForm">
+          <div class="mb-3">
+            <label for="productName" class="form-label">Nombre del Producto</label>
+            <input type="text" class="form-control" id="productName" required>
+          </div>
+          <div class="mb-3">
+            <label for="productPrice" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="productPrice" required>
+          </div>
+          <div class="mb-3">
+            <label for="productStock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="productStock" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Offcanvas para actualizar stock -->
+    <div class="offcanvas offcanvas-end" id="offcanvasUpdateStock">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Actualizar Stock</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form id="updateStockForm">
+          <input type="hidden" id="updateProductIndex">
+          <div class="mb-3">
+            <label for="currentStock" class="form-label">Stock Actual</label>
+            <input type="number" class="form-control" id="currentStock" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="newStock" class="form-label">Nuevo Stock</label>
+            <input type="number" class="form-control" id="newStock" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Offcanvas Client Form -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasClientForm"
+      aria-labelledby="offcanvasClientFormLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasClientFormLabel">Registrar Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form id="clientForm" class="mb-4">
+          <div class="mb-3">
+            <label for="clientName" class="form-label">Nombre del Cliente</label>
+            <input type="text" class="form-control" id="clientName" required />
+          </div>
+          <div class="mb-3">
+            <label for="clientEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="clientEmail" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Registrar Cliente</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Offcanvas para actualizar email -->
+    <div class="offcanvas offcanvas-end" id="offcanvasUpdateEmail">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Actualizar Email</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form id="updateEmailForm">
+          <input type="hidden" id="updateClientIndex">
+          <div class="mb-3">
+            <label for="currentEmail" class="form-label">Email Actual</label>
+            <input type="email" class="form-control" id="currentEmail" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="newEmail" class="form-label">Nuevo Email</label>
+            <input type="email" class="form-control" id="newEmail" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Offcanvas Sales Form -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSalesForm"
+      aria-labelledby="offcanvasSalesFormLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasSalesFormLabel">Registrar Venta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form id="salesForm" class="mb-4">
+          <div class="mb-3">
+            <label for="selectClient" class="form-label">Cliente:</label>
+            <select class="form-select" id="selectClient" required>
+              <!-- Aquí se agregarán los clientes -->
+            </select>
+          </div>
+          <div id="productContainer">
+            <div class="mb-3">
+              <label for="selectProduct" class="form-label">Producto:</label>
+              <select class="form-select selectProduct" required>
+                <!-- Aquí se agregarán los productos -->
+              </select>
+              <label for="productQuantity" class="form-label mt-2">Cantidad</label>
+              <input type="number" class="form-control productQuantity" required />
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary mb-3" id="addProduct">Agregar Producto</button>
+          <div class="mb-3">
+            <label for="totalSale" class="form-label">Total de la Venta</label>
+            <input type="text" class="form-control" id="totalSale" readonly />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Confirmar Venta</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/models/Customer.js"></script>
+    <script src="./js/models/Product.js"></script>
+    <script src="./js/models/Sale.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
